@@ -3,6 +3,11 @@ Temp
 obj
 Assets Package
 
+*.plastic
+*.vs
+*.vscode
+*.vsconfig
+
 *.sln
 *.suo
 *.csproj
