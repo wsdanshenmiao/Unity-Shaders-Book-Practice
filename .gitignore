@@ -22,6 +22,8 @@ logs
 *.private.meta
 ^*.private.[0-9]+$
 ^*.private.[0-9]+.meta$
+.plastic
+.vsconfig
 .vs
 .vscode
 .gradle
