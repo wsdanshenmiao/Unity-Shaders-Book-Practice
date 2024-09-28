@@ -1,0 +1,17 @@
+# Fork Project
+Fork
+
+Library
+Temp
+obj
+Assets Package
+
+*.sln
+*.suo
+*.csproj
+*.svd
+*.userprefs
+*.pidb
+*.user
+*.unityproj
+*.booproj
