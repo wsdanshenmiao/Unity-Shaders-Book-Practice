@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: d5fa21ed628e00d448c5a12b0f675312
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BSCShader: {fileID: 4800000, guid: a839173f6ce85974a9fe1f16f3d90194, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
