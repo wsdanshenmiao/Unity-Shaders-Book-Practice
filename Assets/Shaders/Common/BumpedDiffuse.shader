@@ -9,6 +9,7 @@ Shader "Unity Shader Book/Common/BumpedDiffuse"
     }
     SubShader
     {
+		Tags { "RenderType"="Opaque" "Queue"="Geometry"}
         // Base Pass
         Pass
         {

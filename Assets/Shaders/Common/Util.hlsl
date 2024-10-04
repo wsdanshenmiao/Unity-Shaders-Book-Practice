@@ -29,4 +29,24 @@ half Sobel(sampler2D tex, half2 uv[9])
     return abs(edgeX) + abs(edgeY);
 }
 
+half CheckSame(half4 center, half4 sample, float2 sensitivity)
+{
+    // 只需比较未解码获得真正法线
+    half2 centerNormal = center.xy;
+    float centerDepth = DecodeFloatRG(center.zw);
+    half2 sampleNormal = sample.xy;
+    float sampleDepth = DecodeFloatRG(sample.zw);
+
+    // 获取法线差异值
+    half2 diffNormal = abs(centerNormal - sampleNormal) * sensitivity.y;
+    int isSameNormal = (diffNormal.x + diffNormal.y) < 0.1;
+
+    // 获取深度差异值
+    float diffDepth = abs(centerDepth - sampleDepth) * sensitivity.x;
+    int isSameDepth = diffDepth < 0.1 * centerDepth;
+
+    // 都为1时才返回1
+    return isSameNormal * isSameDepth ? 1 : 0;
+}
+
 #endif

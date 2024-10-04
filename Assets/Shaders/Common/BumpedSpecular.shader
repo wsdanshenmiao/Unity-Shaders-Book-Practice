@@ -11,6 +11,8 @@ Shader "Unity Shader Book/Common/BumpedSpecular"
     }
     SubShader
     {
+        Tags { "RenderType"="Opaque" "Queue"="Geometry"}
+
         // Base Pass
         Pass
         {

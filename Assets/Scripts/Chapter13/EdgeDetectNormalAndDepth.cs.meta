@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 962a366889e4e754bbf94114d0af622a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - degeDetectShader: {fileID: 4800000, guid: 05808d52b188b844198245e43648249a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
