@@ -1,4 +1,4 @@
-Shader "Unity Shader Book/ToonShading"
+Shader "Unity Shader Book/Chapter14/ToonShading"
 {
     Properties
     {
@@ -7,8 +7,8 @@ Shader "Unity Shader Book/ToonShading"
         _Ramp ("Ramp Texture", 2D) = "white" {}
         _Color ("Color Tine", Color) = (1,1,1,1)
         // 边缘线
-        _OutLine ("Out Line", Range(0, 1)) = 0.1
-        _OutLineColor ("Out Line Color", Color) = (1,1,1,1)
+        _Outline ("Out Line", Range(0, 1)) = 0.1
+        _OutlineColor ("Out Line Color", Color) = (1,1,1,1)
         // 高光颜色
         _SpecularColor ("Specular Color", Color) = (1,1,1,1)
         // 高光阈值
@@ -27,8 +27,8 @@ Shader "Unity Shader Book/ToonShading"
         sampler2D _Ramp;
         fixed4 _Color;
         // 边缘线
-        float _OutLine;
-        fixed4 _OutLineColor;
+        float _Outline;
+        fixed4 _OutlineColor;
         // 高光颜色
         fixed4 _SpecularColor;
         // 高光阈值
@@ -51,14 +51,14 @@ Shader "Unity Shader Book/ToonShading"
             float4 pos = mul(UNITY_MATRIX_MV, v.vertex);
             float3 normal = mul((float3x3)UNITY_MATRIX_IT_MV, v.normal);
             normal.z = -0.5;
-            pos += float4(normal, 0) * _OutLine;
+            pos += float4(normal, 0) * _Outline;
             o.pos = mul(UNITY_MATRIX_P, pos);
             return o;
         }
 
         fixed4 fragOutline(v2fOutline i) : SV_Target
         {
-            return fixed4(_OutLineColor.rgb, 1);
+            return fixed4(_OutlineColor.rgb, 1);
         }
 
 
