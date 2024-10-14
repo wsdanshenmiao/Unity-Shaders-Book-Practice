@@ -27,6 +27,15 @@ public class FogWithNoice : PostEffectsBase
     // 雾的终点高度
     public float fogEnd = 1.0f;
 
+    // 携带噪声的屏幕雾效
+    public Texture noiceTexture;
+    [Range(0.01f, 0.1f)]
+    public float fogSpeedX = -0.05f;
+    [Range(0.01f, 0.1f)]
+    public float fogSpeedY = 0.05f;
+    [Range(0, 4f)]
+    public float noiceAmount = 1f;
+
     void OnEnable() {
 		myCamera.depthTextureMode |= DepthTextureMode.Depth;
 	}
@@ -84,6 +93,12 @@ public class FogWithNoice : PostEffectsBase
             material.SetFloat("_FogStar", fogStar);
             material.SetFloat("_FogEnd", fogEnd);
             material.SetFloat("_FogFactor", fogFactor);
+
+            // 设置纹理需要的属性
+            material.SetTexture("_NoiceTex", noiceTexture);
+            material.SetFloat("_FogSpeedX", fogSpeedX);
+            material.SetFloat("_FogSpeedY", fogSpeedY);
+            material.SetFloat("_NoiceAmount", noiceAmount);
 
             Graphics.Blit(src, dest, material);
         }

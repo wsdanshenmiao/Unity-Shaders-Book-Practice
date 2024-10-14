@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - fogShader: {fileID: 4800000, guid: 44441cbcfcad19f489da904083bd33da, type: 3}
+  - noiceTexture: {fileID: 2800000, guid: 47cdda17bb08a47b0a50675cbb83cfa2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

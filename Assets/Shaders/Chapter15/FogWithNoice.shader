@@ -8,7 +8,12 @@ Shader "Unity Shader Book/Chapter15/FogWithNoice"
         _FogStar ("_FogStar", Float) = 0.0
         _FogEnd ("_FogEnd", Float) = 1.0
         _FogFactor ("_FogFactor", Float) = 1.0
-    }
+
+        _NoiceTex ("Noice Texture", 2D) = "bump" {}
+        _FogSpeedX ("Fog Speed X", Range(0.01, 0.1)) = 0.05
+        _FogSpeedY ("Fog Speed Y", Range(0.01, 0.1)) = 0.05
+        _NoiceAmount ("Noice Amount", Range(0, 4)) = 1
+}
     SubShader
     {
         CGINCLUDE
@@ -36,6 +41,11 @@ Shader "Unity Shader Book/Chapter15/FogWithNoice"
         float _FogStar;
         float _FogEnd;
         float _FogFactor;
+
+        sampler2D _NoiceTex;
+        float _FogSpeedX;
+        float _FogSpeedY;
+        float _NoiceAmount;
 
         v2f vert (appdata v)
         {
@@ -72,6 +82,10 @@ Shader "Unity Shader Book/Chapter15/FogWithNoice"
             float linearDepth = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv.zw));
             float3 posW = _WorldSpaceCameraPos + linearDepth * i.interpolatedRay.xyz;
 
+            float2 speed = _Time.y * float2(_FogSpeedX, _FogSpeedY);
+            // 由[0,1]映射到[-0.5,0.5]
+            float noice = (tex2D(_NoiceTex, i.uv + speed).r - 0.5) * _NoiceAmount;
+
             float fogDensity = 0;
             #ifdef LINEAR
             fogDensity = (_FogEnd - posW.y) / (_FogEnd - _FogStar);
@@ -82,7 +96,8 @@ Shader "Unity Shader Book/Chapter15/FogWithNoice"
             #ifdef SQUARED
             fogDensity = exp(-pow(_FogFactor - posW.y, 2));
             #endif
-            fogDensity = saturate(fogDensity * _FogDensity);
+
+            fogDensity = saturate(fogDensity * _FogDensity * (1 + noice));
             // sample the texture
             fixed4 col = tex2D(_MainTex, i.uv.xy);
             col.rgb = lerp(col.rgb, _FogColor.rgb, fogDensity);

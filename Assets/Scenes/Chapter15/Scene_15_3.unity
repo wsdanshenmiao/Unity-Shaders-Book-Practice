@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -1061,8 +1060,7 @@ GameObject:
   - component: {fileID: 1838242756}
   - component: {fileID: 1838242754}
   - component: {fileID: 1838242753}
-  - component: {fileID: 1838242758}
-  - component: {fileID: 1838242760}
+  - component: {fileID: 1838242761}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1152,7 +1150,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1838242758
+--- !u!114 &1838242761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1161,31 +1159,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838242752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dcfcb2f2be4e44c859e3690c71884b, type: 3}
+  m_Script: {fileID: 11500000, guid: f22daf4febee76240a2658384c67d89c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fogShader: {fileID: 4800000, guid: 44441cbcfcad19f489da904083bd33da, type: 3}
+  fogShader: {fileID: 4800000, guid: a59d886a64e176d4ebe264df61486cb4, type: 3}
+  fogMode: 0
   fogDensity: 1.2
-  fogColor: {r: 1, g: 1, b: 1, a: 1}
+  fogColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
+  fogFactor: 1
   fogStar: -1.5
   fogEnd: 3
---- !u!114 &1838242760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838242752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 131048bc4f9714798b11c61e7521016f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  startPoint: {x: 0, y: 1, z: -11}
-  endPoint: {x: 0, y: 6, z: -10}
-  lookAt: {x: 0, y: -0.4, z: -1.5}
-  pingpong: 1
+  noiceTexture: {fileID: 2800000, guid: 47cdda17bb08a47b0a50675cbb83cfa2, type: 3}
+  fogSpeedX: 0.01
+  fogSpeedY: 0.05
+  noiceAmount: 1
 --- !u!1 &1927954593
 GameObject:
   m_ObjectHideFlags: 0
