@@ -1170,7 +1170,7 @@ MonoBehaviour:
   fogStar: -1.5
   fogEnd: 3
   noiceTexture: {fileID: 2800000, guid: 47cdda17bb08a47b0a50675cbb83cfa2, type: 3}
-  fogSpeedX: 0.01
+  fogSpeedX: -0.05
   fogSpeedY: 0.05
   noiceAmount: 1
 --- !u!1 &1927954593

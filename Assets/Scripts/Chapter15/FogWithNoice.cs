@@ -29,11 +29,11 @@ public class FogWithNoice : PostEffectsBase
 
     // 携带噪声的屏幕雾效
     public Texture noiceTexture;
-    [Range(0.01f, 0.1f)]
+    [Range(-0.1f, 0.1f)]
     public float fogSpeedX = -0.05f;
-    [Range(0.01f, 0.1f)]
+    [Range(-0.1f, 0.1f)]
     public float fogSpeedY = 0.05f;
-    [Range(0, 4f)]
+    [Range(0, 2f)]
     public float noiceAmount = 1f;
 
     void OnEnable() {
