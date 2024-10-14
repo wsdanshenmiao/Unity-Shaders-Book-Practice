@@ -1,4 +1,4 @@
-Shader "Unity Shader Bool/Chapter13/EdgeDetectNormalAndDepth"
+Shader "Unity Shader Book/Chapter13/EdgeDetectNormalAndDepth"
 {
     Properties
     {
