@@ -101,7 +101,7 @@ Shader "Unity Shader Book/Chapter15/FogWithNoice"
             // sample the texture
             fixed4 col = tex2D(_MainTex, i.uv.xy);
             col.rgb = lerp(col.rgb, _FogColor.rgb, fogDensity);
-            return col;
+            return fixed4(posW, 1);
         }
         ENDCG
 
